@@ -14,30 +14,36 @@ const Wrapper = styled.div`
 
 const Container = styled.div`
     width: 100%;
+    max-width: 720px;
+
+    & > * {
+        :not(:last-child) {
+            margin-bottom: 16px;
+        }
+    }
 `;
 
-function LoginBtn(){
+function ChoiceList(){
     return <article>
-        <form onSubmit={event=>{
-            event.preventDefault();
-        }}>
-            <input type="text" name="LogId" placeholder="아이디"></input>
-            <input type="text" name="LogPw" placeholder="비밀번호"></input>
-            <input type="submit" value="로그인"></input>
-        </form>
+        <div>
+            <ul>
+            </ul>
+        </div>
     </article>
 }
 
 function LoginPage(props) {
     const navigate = useNavigate();
+    
+    const { ingredient } = props;
 
     return (
         <Wrapper>
             <Container>
-                <LoginBtn></LoginBtn>
+                <ChoiceList>{ingredient.content}</ChoiceList>
 
                 <BackButton 
-                    as="input" 
+                    as="input"
                     type="button"
                     title="뒤로가기"
                     onClick={() => {

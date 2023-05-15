@@ -11,7 +11,11 @@ const Wrapper = styled.div`
     & > * {
         :not(:last-child) {
             margin-bottom: 16px;
-            height: 300px;
+            height: 150px;
+            display: inline-block;
+        }
+        :last-child {
+            display: inline-block;
         }
     }
 `;

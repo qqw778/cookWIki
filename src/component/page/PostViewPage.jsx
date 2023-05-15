@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 import CommentList from "../list/CommentList";
-import LoginButton from "../ui/LoginButton";
 import BackButton from "../ui/BackButton";
 import data from "../../data.json";
 
@@ -70,10 +69,10 @@ function PostViewPage(props) {
                 <PostContainer>
                     <TitleText>{post.title}</TitleText>
                     <ContentText>{post.content}</ContentText>
-                </PostContainer>
 
-                <CommentLabel>요리</CommentLabel>
-                <CommentList comments={post.comments} />
+                    <CommentLabel>요리 재료</CommentLabel>
+                    <CommentList comments={post.comments} />
+                </PostContainer>
 
             </Container>
         </Wrapper>

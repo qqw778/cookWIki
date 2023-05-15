@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import TextInput from "../ui/TextInput";
-import Button from "../ui/LoginButton";
+import BackButton from "../ui/BackButton";
 
 const Wrapper = styled.div`
     padding: 16px;
@@ -24,35 +23,30 @@ const Container = styled.div`
     }
 `;
 
+function JoinBtn(){
+    return <article>
+        <form onSubmit={event=>{
+            event.preventDefault();
+        }}>
+            <input type="text" name="LogId" placeholder="아이디"></input>
+            <input type="text" name="LogPw" placeholder="비밀번호"></input>
+            <input type="submit" value="회원가입"></input>
+        </form>
+    </article>
+}
+
 function JoinPage(props) {
     const navigate = useNavigate();
-
-    const [title, setTitle] = useState("");
-    const [content, setContent] = useState("");
 
     return (
         <Wrapper>
             <Container>
-                <TextInput
-                    height={20}
-                    value={title}
-                    onChange={(event) => {
-                        setTitle(event.target.value);
-                    }}
-                />
+                <JoinBtn></JoinBtn>
 
-                <TextInput
-                    height={20}
-                    value={content}
-                    onChange={(event) => {
-                        setContent(event.target.value);
-                    }}
-                />
-
-                <Button 
+                <BackButton 
                     as="input" 
                     type="button"
-                    title="회원가입"
+                    title="뒤로가기"
                     onClick={() => {
                         navigate("/");
                     }}

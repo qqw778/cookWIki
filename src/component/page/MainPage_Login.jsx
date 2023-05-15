@@ -2,9 +2,9 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import PostList from "../list/PostList";
-import LoginButton from "../ui/LoginButton";
-import JoinButton from "../ui/JoinButton";
+import Button from "../ui/LoginButton";
 import data from '../../data.json';
+
 
 const MainTitleText = styled.p`
     font-size: 24px;
@@ -19,19 +19,6 @@ const Wrapper = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-`;
-
-const Headers = styled.div`
-    padding: 16px;
-    width: 100%;
-`;
-
-const NavVar = styled.nav`
-    & > * {
-        color: red;
-    }
-    position: absolute;
-    right: 1%;
 `;
 
 const Container = styled.div`
@@ -50,24 +37,14 @@ function MainPage(props) {
 
     return (
         <Wrapper>
-            <Headers>
-                <MainTitleText>요리위키</MainTitleText>
-                <NavVar>
-                    <LoginButton
-                        title="로그인"
-                        onClick={() => {
-                            navigate("/Login");
-                        }}
-                    />
-                    <JoinButton
-                        title="회원가입"
-                        onClick={() => {
-                            navigate("/Join");
-                        }}
-                    />
-                </NavVar>
-            </Headers>
+            <MainTitleText>요리위키</MainTitleText>
             <Container>
+                <Button
+                    title="마이페이지"
+                    onClick={() => {
+                        navigate("/MyPage");
+                    }}
+                />
                 <PostList
                     posts={data}
                     onClickItem={(item) => {

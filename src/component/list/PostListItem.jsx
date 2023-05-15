@@ -16,13 +16,20 @@ const Wrapper = styled.div`
     }
 `;
 
-function ListImg(props) {
-    return <img src="public/image/1.jpg"/>              // 이미지 파일 경로
-}
+const TitleText = styled.p`
+    font-size: 20px;
+    font-weight: 500;
+    display: inline-block;
+    line-height: 100px;
+    text-align: center;
+    width: 200px; height: 100px;
+`;
 
 const ItemText = styled.p`
     font-size: 20px;
-    font-weight: 500;
+    display: inline-block;
+    line-height: 100px;
+    text-align: center;
 `;
                                                         //ItemText = 요리위키 리스트 태그
 function PostListItem(props) {
@@ -30,8 +37,8 @@ function PostListItem(props) {
 
     return (
         <Wrapper onClick={onClick}>
-            <ListImg></ListImg>
-            <ItemText>{post.title}</ItemText>
+            <TitleText>{post.title}</TitleText>
+            <ItemText>{post.content}</ItemText>
         </Wrapper>
     );
 }
